@@ -3,24 +3,24 @@ This App is for IOS push notifications Using grocer Gem..
 Test it like this from command line.
 
 
-pusher = Grocer.pusher(
-  certificate: File.join(Rails.root, 'config', 'certificate.pem'),      
-  passphrase:  "leo_123",                      
-  gateway:     "gateway.push.apple.com", 
-  port:        2195,                     
-  retries:     3                         
-)
+  pusher = Grocer.pusher(
+    certificate: File.join(Rails.root, 'config', 'certificate.pem'),      
+    passphrase:  "",                      
+    gateway:     "gateway.push.apple.com", 
+    port:        2195,                     
+    retries:     3                         
+  )
 
 
 
-notification = Grocer::Notification.new(
-  device_token:      "cd6fe0e9 ec41d20b 7f57e9b7 0cc42d4a e19323b5 ce6397b6 90f59b77 65ed818e",
-  alert:             "Hello from Santosh!",
-  badge:             42,
-  sound:             "siren.aiff",         
-  expiry:            Time.now + 60*60,    
-  identifier:        1234,                 
-  content_available: true                  
-)
+  notification = Grocer::Notification.new(
+    device_token:      "cd6fe0e9 ec41d20b 7f57e9b7 0cc42d4a e19323b5 ce6397b6 90f59b77 65ed818e",
+    alert:             "Hello from Santosh!",
+    badge:             42,
+    sound:             "siren.aiff",         
+    expiry:            Time.now + 60*60,    
+    identifier:        1234,                 
+    content_available: true                  
+  )
 
-pusher.push(notification)
+  pusher.push(notification)
